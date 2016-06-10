@@ -10,6 +10,10 @@
 		A17A5D0E1D0A3BB000C4BE1F /* PactMockServer.h in Headers */ = {isa = PBXBuildFile; fileRef = A17A5D0D1D0A3BB000C4BE1F /* PactMockServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17A5D151D0A3BB000C4BE1F /* PactMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17A5D0A1D0A3BB000C4BE1F /* PactMockServer.framework */; };
 		A17A5D1A1D0A3BB000C4BE1F /* PactMockServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A5D191D0A3BB000C4BE1F /* PactMockServerTests.swift */; };
+		A17A5D271D0A3BFB00C4BE1F /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A17A5D241D0A3BFB00C4BE1F /* libpact_mock_server.a */; };
+		A17A5D291D0A3BFB00C4BE1F /* PublicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A17A5D261D0A3BFB00C4BE1F /* PublicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A17A5D2C1D0A3CBA00C4BE1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17A5D2B1D0A3CBA00C4BE1F /* Foundation.framework */; };
+		A17A5D2E1D0A3CC500C4BE1F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17A5D2D1D0A3CC500C4BE1F /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,11 @@
 		A17A5D141D0A3BB000C4BE1F /* PactMockServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PactMockServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17A5D191D0A3BB000C4BE1F /* PactMockServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactMockServerTests.swift; sourceTree = "<group>"; };
 		A17A5D1B1D0A3BB000C4BE1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A17A5D241D0A3BFB00C4BE1F /* libpact_mock_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server.a; sourceTree = "<group>"; };
+		A17A5D251D0A3BFB00C4BE1F /* exported_symbols.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = exported_symbols.txt; sourceTree = "<group>"; };
+		A17A5D261D0A3BFB00C4BE1F /* PublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
+		A17A5D2B1D0A3CBA00C4BE1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A17A5D2D1D0A3CC500C4BE1F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17A5D2E1D0A3CC500C4BE1F /* Security.framework in Frameworks */,
+				A17A5D2C1D0A3CBA00C4BE1F /* Foundation.framework in Frameworks */,
+				A17A5D271D0A3BFB00C4BE1F /* libpact_mock_server.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +65,8 @@
 		A17A5D001D0A3BB000C4BE1F = {
 			isa = PBXGroup;
 			children = (
+				A17A5D2D1D0A3CC500C4BE1F /* Security.framework */,
+				A17A5D2B1D0A3CBA00C4BE1F /* Foundation.framework */,
 				A17A5D0C1D0A3BB000C4BE1F /* PactMockServer */,
 				A17A5D181D0A3BB000C4BE1F /* PactMockServerTests */,
 				A17A5D0B1D0A3BB000C4BE1F /* Products */,
@@ -71,6 +85,9 @@
 		A17A5D0C1D0A3BB000C4BE1F /* PactMockServer */ = {
 			isa = PBXGroup;
 			children = (
+				A17A5D241D0A3BFB00C4BE1F /* libpact_mock_server.a */,
+				A17A5D251D0A3BFB00C4BE1F /* exported_symbols.txt */,
+				A17A5D261D0A3BFB00C4BE1F /* PublicHeader.h */,
 				A17A5D0D1D0A3BB000C4BE1F /* PactMockServer.h */,
 				A17A5D0F1D0A3BB000C4BE1F /* Info.plist */,
 			);
@@ -93,6 +110,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17A5D291D0A3BFB00C4BE1F /* PublicHeader.h in Headers */,
 				A17A5D0E1D0A3BB000C4BE1F /* PactMockServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +258,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXPORTED_SYMBOLS_FILE = "$(PROJECT_DIR)/PactMockServer/exported_symbols.txt";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -254,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -289,6 +308,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXPORTED_SYMBOLS_FILE = "$(PROJECT_DIR)/PactMockServer/exported_symbols.txt";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -297,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,6 +337,10 @@
 				INFOPLIST_FILE = PactMockServer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PactMockServer",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.pact.PactMockServer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -333,6 +357,10 @@
 				INFOPLIST_FILE = PactMockServer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PactMockServer",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.pact.PactMockServer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

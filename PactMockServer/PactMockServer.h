@@ -14,6 +14,8 @@ FOUNDATION_EXPORT double PactMockServerVersionNumber;
 //! Project version string for PactMockServer.
 FOUNDATION_EXPORT const unsigned char PactMockServerVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <PactMockServer/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like
+
+#import <PactMockServer/PublicHeader.h>
 
 
