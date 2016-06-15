@@ -55,7 +55,7 @@ class PactMockServerTests: XCTestCase {
   }
 
   func testMatchingExample() {
-    let port = PactMockServer.create_mock_server(pact)
+    let port = PactMockServer.create_mock_server(pact, 1234)
     print("starting test on port \(port)")
   
     let url = NSURL(string: "http://localhost:\(port)/mallory?name=ron&status=good")
@@ -75,7 +75,7 @@ class PactMockServerTests: XCTestCase {
   }
 
   func testMismatchExample() {
-    let port = PactMockServer.create_mock_server(pact)
+    let port = PactMockServer.create_mock_server(pact, 1235)
     print("starting test on port \(port)")
     let url = NSURL(string: "http://localhost:\(port)/mallory?name=ron&status=NoGood")
     let expectation = expectationWithDescription("Swift Expectations")
