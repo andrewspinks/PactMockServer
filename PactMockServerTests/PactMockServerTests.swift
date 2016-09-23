@@ -58,43 +58,44 @@ class PactMockServerTests: XCTestCase {
     let port = PactMockServer.create_mock_server(pact, 1234)
     print("starting test on port \(port)")
   
-    let url = NSURL(string: "http://localhost:\(port)/mallory?name=ron&status=good")
-    let expectation = expectationWithDescription("Swift Expectations")
+    let url = URL(string: "http://localhost:\(port)/mallory?name=ron&status=good")
+    let expectation = self.expectation(description: "Swift Expectations")
 
-    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-      print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+    let task = URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+      print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
       
       XCTAssertTrue(PactMockServer.mock_server_matched(port))
-      
+
+      PactMockServer.write_pact_file(port, nil)
       PactMockServer.cleanup_mock_server(port)
       expectation.fulfill()
-    }
+    }) 
 
     task.resume()
-    waitForExpectationsWithTimeout(5.0, handler:nil)
+    waitForExpectations(timeout: 5.0, handler:nil)
   }
 
   func testMismatchExample() {
     let port = PactMockServer.create_mock_server(pact, 1235)
     print("starting test on port \(port)")
-    let url = NSURL(string: "http://localhost:\(port)/mallory?name=ron&status=NoGood")
-    let expectation = expectationWithDescription("Swift Expectations")
+    let url = URL(string: "http://localhost:\(port)/mallory?name=ron&status=NoGood")
+    let expectation = self.expectation(description: "Swift Expectations")
 
-    let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-      print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+    let task = URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+      print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
       
       XCTAssertFalse(PactMockServer.mock_server_matched(port))
-      let mismatchJson = String.fromCString(PactMockServer.mock_server_mismatches(port))
+      let mismatchJson = String(cString: PactMockServer.mock_server_mismatches(port))
       print("-----------Mismatches!--------")
       print(mismatchJson)
       print("------------------------------")
       
       PactMockServer.cleanup_mock_server(port)
       expectation.fulfill()
-    }
+    }) 
 
     task.resume()
-    waitForExpectationsWithTimeout(5.0, handler:nil)
+    waitForExpectations(timeout: 5.0, handler:nil)
   }
 
 }
